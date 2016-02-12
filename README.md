@@ -20,8 +20,7 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Changelog
 
-2016.02.12 0.1beta
-	Initial release
+* 2016.02.12 0.1beta > Initial release
 
 # License
 GNU, version 3
