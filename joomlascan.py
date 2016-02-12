@@ -20,8 +20,8 @@ def hello():
 
 def load_component():
 	with open("comptotestdb.txt", "r") as f:
-	  for line in f:
-		dbarray.append(line[:-1]) if line[-1] == "\n" else dbarray.append(line)
+		for line in f:
+			dbarray.append(line[:-1]) if line[-1] == "\n" else dbarray.append(line)
 
 def check_url(url, path="/"):
 	parse_url = urlparse(url)
@@ -58,9 +58,9 @@ def index_of(url, path="/"):
 	except urllib2.URLError as e:
 		return False
 	else:
-   		page = resp.read()
-   		soup = BeautifulSoup(page, "html.parser")
-   		if soup.title:
+		page = resp.read()
+		soup = BeautifulSoup(page, "html.parser")
+		if soup.title:
 			titlepage = soup.title.string
 			if (titlepage and "Index of /" in titlepage):
 				return True
@@ -129,4 +129,4 @@ def main(argv):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+	main(sys.argv[1:])
