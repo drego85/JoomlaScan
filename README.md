@@ -6,6 +6,7 @@ A free and open source software to find the components installed in Joomla CMS, 
 * Locate the browsable folders of component (Index of ...);
 * Locate the components disabled or protected
 * Locate the robots.txt file or error_log file
+* Supports HTTP or HTTPS connections
 
 # Next Features
 * Locate the version of Joomla CMS
@@ -13,10 +14,13 @@ A free and open source software to find the components installed in Joomla CMS, 
 * Set a connection timeout
 * A database of vulnerable components
 
-
 # Usage
 
 $ python joomlascan.py -u http://www.targetsite.com
+
+# Screenshot
+
+![alt Screenshot](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.1b.png)
 
 # Changelog
 
