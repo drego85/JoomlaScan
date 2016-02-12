@@ -81,11 +81,14 @@ def main(argv):
 
 	if results.url:
 		url = results.url
+		if url[:8] != "https://" and url[:7] != "http://":
+			print("You must insert http:// or https:// procotol")
+			sys.exit(1)
 	else:
 		print "url is required"
 		print ""
 		parser.parse_args(['-h'])
-		exit()
+		sys.exit(1)
 
 	load_component()
 	
