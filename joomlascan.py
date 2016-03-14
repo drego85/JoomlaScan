@@ -14,7 +14,7 @@ def hello():
 	print "-------------------------------------------"
 	print "      	 Joomla Components Scanner        "
 	print "   Usage: python joomlascan.py <target>    "
-	print "    Version 0.1b - Database Entries " + str(len(dbarray))
+	print "    Version 0.2b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
 	print "-------------------------------------------"
 
@@ -44,7 +44,47 @@ def check_url(url, path="/"):
 			return conn.getresponse().status
 		except StandardError:
 			return None
-			
+
+def check_readme(url, component):
+	if check_url(url, "/components/" + component + "/README.txt") == 200:
+		print "\t README file found \t > " + url + "/components/" + component + "/README.txt"
+
+	if check_url(url, "/components/" + component + "/readme.txt") == 200:
+		print "\t README file found \t > " + url + "/components/" + component + "/readme.txt"
+		
+	if check_url(url, "/administrator/components/" + component + "/README.txt") == 200:
+		print "\t README file found \t > " + url + "/administrator/components/" + component + "/README.txt"
+
+	if check_url(url, "/administrator/components/" + component + "/readme.txt") == 200:
+		print "\t README file found \t > " + url + "/administrator/components/" + component + "/readme.txt"
+		
+def check_license(url, component):
+	if check_url(url, "/components/" + component + "/LICENSE.txt") == 200:
+		print "\t LICENSE file found \t > " + url + "/components/" + component + "/LICENSE.txt"
+
+	if check_url(url, "/components/" + component + "/license.txt") == 200:
+		print "\t LICENSE file found \t > " + url + "/components/" + component + "/license.txt"
+		
+	if check_url(url, "/administrator/components/" + component + "/LICENSE.txt") == 200:
+		print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/LICENSE.txt"
+
+	if check_url(url, "/administrator/components/" + component + "/license.txt") == 200:
+		print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/license.txt"	
+		
+def check_changelog(url, component):
+	if check_url(url, "/components/" + component + "/CHANGELOG.txt") == 200:
+		print "\t CHANGELOG file found \t > " + url + "/components/" + component + "/CHANGELOG.txt"
+
+	if check_url(url, "/components/" + component + "/changelog.txt") == 200:
+		print "\t CHANGELOG file found \t > " + url + "/components/" + component + "/changelog.txt"
+		
+	if check_url(url, "/administrator/components/" + component + "/CHANGELOG.txt") == 200:
+		print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/CHANGELOG.txt"
+
+	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
+		print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/changelog.txt"	
+		
+
 def index_of(url, path="/"):
 	fullurl = url + path
 	req = urllib2.Request(fullurl)
@@ -116,14 +156,48 @@ def main(argv):
 			if check_url(url, "/index.php?option=" + component) == 200:
 				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
 				
+				check_readme(url, component)
+					
+				check_license(url, component)	
+
+				check_changelog(url, component)					
+									
 				if index_of(url, "/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
+				
+				if index_of(url, "/administrator/components/" + component + "/"):
+					print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
+			
 			elif check_url(url, "/components/" + component + "/" ) == 200:
 				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component + "\t but possibly it is not active or protected"
 				
+				check_readme(url, component)
+					
+				check_license(url, component)	
+
+				check_changelog(url, component)	
+									
 				if index_of(url, "/components/" + component + "/"):
-					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"	
-		
+					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
+
+				if index_of(url, "/administrator/components/" + component + "/"):
+					print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
+										
+			elif check_url(url, "/administrator/components/" + component + "/" ) == 200:
+				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component + "\t on the administrator components"
+
+				check_readme(url, component)
+					
+				check_license(url, component)	
+
+				check_changelog(url, component)	
+				
+				if index_of(url, "/administrator/components/" + component + "/"):
+					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
+
+				if index_of(url, "/administrator/components/" + component + "/"):
+					print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
+							
 	else:
 		print "Site Down, check url please..."
 
