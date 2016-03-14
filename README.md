@@ -20,7 +20,8 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Screenshot
 
-![alt Screenshot](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.1b.png)
+![alt Screenshot 0.2b](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.2b.png)
+![alt Screenshot 0.1b](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.1b.png)
 
 # Requirements
 * Python
@@ -28,6 +29,7 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Changelog
 
+* 2016.03.14 0.2beta >  Find administrator components and file Readme, Changelog, License.
 * 2016.02.12 0.1beta > Initial release
 
 # License
