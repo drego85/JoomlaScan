@@ -29,7 +29,8 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Changelog
 
-* 2016.03.14 0.2beta >  Find administrator components and file Readme, Changelog, License.
+* 2016.03.18 0.3beta > Find index file on components directory
+* 2016.03.14 0.2beta > Find administrator components and file Readme, Changelog, License.
 * 2016.02.12 0.1beta > Initial release
 
 # License
