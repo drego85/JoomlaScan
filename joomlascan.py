@@ -14,7 +14,7 @@ def hello():
 	print "-------------------------------------------"
 	print "      	 Joomla Components Scanner        "
 	print "   Usage: python joomlascan.py <target>    "
-	print "    Version 0.2b - Database Entries " + str(len(dbarray))
+	print "    Version 0.3b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
 	print "-------------------------------------------"
 
@@ -84,7 +84,19 @@ def check_changelog(url, component):
 	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
 		print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/changelog.txt"	
 		
+def check_index(url, component):
+	if check_url(url, "/components/" + component + "/CHANGELOG.txt") == 200:
+		print "\t INDEX file found \t > " + url + "/components/" + component + "/index.html"
 
+	if check_url(url, "/components/" + component + "/changelog.txt") == 200:
+		print "\t INDEX file found \t > " + url + "/components/" + component + "/index.htm"
+		
+	if check_url(url, "/administrator/components/" + component + "/CHANGELOG.txt") == 200:
+		print "\t INDEX file found \t > " + url + "/administrator/components/" + component + "/index.html"
+
+	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
+		print "\t INDEX file found \t > " + url + "/administrator/components/" + component + "/index.htm"	
+		
 def index_of(url, path="/"):
 	fullurl = url + path
 	req = urllib2.Request(fullurl)
@@ -173,9 +185,11 @@ def main(argv):
 				
 				check_readme(url, component)
 					
-				check_license(url, component)	
+				check_license(url, component)
 
-				check_changelog(url, component)	
+				check_changelog(url, component)
+				
+				check_index(url, component)
 									
 				if index_of(url, "/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
@@ -188,9 +202,11 @@ def main(argv):
 
 				check_readme(url, component)
 					
-				check_license(url, component)	
+				check_license(url, component)
 
-				check_changelog(url, component)	
+				check_changelog(url, component)
+				
+				check_index(url, component)
 				
 				if index_of(url, "/administrator/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
