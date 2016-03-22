@@ -216,6 +216,7 @@ com_drawroot
 com_ds-syndicate
 com_dshop
 com_dtregister
+com_easy_youtube_gallery
 com_easybook
 com_easygb
 com_elite
