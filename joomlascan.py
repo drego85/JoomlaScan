@@ -1,20 +1,21 @@
 #!/usr/bin/python
 import sys
 import httplib
-import urllib2
+import requests
 import argparse
-from urlparse import urlparse
 from bs4 import BeautifulSoup
 
 dbarray = []
 https = False
 url = ""
+headerdesktop = {"User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", "Accept-Language": "it"}
+timeoutconnection = 5
 
 def hello():
 	print "-------------------------------------------"
 	print "      	 Joomla Components Scanner        "
 	print "   Usage: python joomlascan.py <target>    "
-	print "    Version 0.3b - Database Entries " + str(len(dbarray))
+	print "    Version 0.2b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
 	print "-------------------------------------------"
 
@@ -24,26 +25,14 @@ def load_component():
 			dbarray.append(line[:-1]) if line[-1] == "\n" else dbarray.append(line)
 
 def check_url(url, path="/"):
-	parse_url = urlparse(url)
-	if parse_url.scheme == "https":
-		https = True
-	else:
-		https = False
 
-	if https:
-		try:
-			conn = httplib.HTTPSConnection(parse_url.hostname)
-			conn.request("HEAD", path)
-			return conn.getresponse().status
-		except StandardError:
-			return None
-	else:
-		try:
-			conn = httplib.HTTPConnection(parse_url.hostname)
-			conn.request("HEAD", path)
-			return conn.getresponse().status
-		except StandardError:
-			return None
+	fullurl = url + path
+	try:
+		conn = requests.get(fullurl, headers=headerdesktop, timeout=timeoutconnection, verify=False)
+		return conn.status_code
+	except StandardError:
+		return None
+
 
 def check_readme(url, component):
 	if check_url(url, "/components/" + component + "/README.txt") == 200:
@@ -57,6 +46,12 @@ def check_readme(url, component):
 
 	if check_url(url, "/administrator/components/" + component + "/readme.txt") == 200:
 		print "\t README file found \t > " + url + "/administrator/components/" + component + "/readme.txt"
+		
+	if check_url(url, "/administrator/components/" + component + "/README.md") == 200:
+		print "\t README file found \t > " + url + "/administrator/components/" + component + "/README.md"
+
+	if check_url(url, "/administrator/components/" + component + "/readme.md") == 200:
+		print "\t README file found \t > " + url + "/administrator/components/" + component + "/readme.md"
 		
 def check_license(url, component):
 	if check_url(url, "/components/" + component + "/LICENSE.txt") == 200:
@@ -84,34 +79,12 @@ def check_changelog(url, component):
 	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
 		print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/changelog.txt"	
 		
-def check_index(url, component):
-	if check_url(url, "/components/" + component + "/CHANGELOG.txt") == 200:
-		print "\t INDEX file found \t > " + url + "/components/" + component + "/index.html"
 
-	if check_url(url, "/components/" + component + "/changelog.txt") == 200:
-		print "\t INDEX file found \t > " + url + "/components/" + component + "/index.htm"
-		
-	if check_url(url, "/administrator/components/" + component + "/CHANGELOG.txt") == 200:
-		print "\t INDEX file found \t > " + url + "/administrator/components/" + component + "/index.html"
-
-	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
-		print "\t INDEX file found \t > " + url + "/administrator/components/" + component + "/index.htm"	
-		
 def index_of(url, path="/"):
 	fullurl = url + path
-	req = urllib2.Request(fullurl)
 	try:
-		resp = urllib2.urlopen(req)
-	except urllib2.HTTPError as e:
-		if e.code == 404:
-			return False
-		else:
-			return False
-	except urllib2.URLError as e:
-		return False
-	else:
-		page = resp.read()
-		soup = BeautifulSoup(page, "html.parser")
+		page = requests.get(fullurl, headers=headerdesktop, timeout=timeoutconnection)
+		soup = BeautifulSoup(page.text, "html.parser")
 		if soup.title:
 			titlepage = soup.title.string
 			if (titlepage and "Index of /" in titlepage):
@@ -120,6 +93,8 @@ def index_of(url, path="/"):
 				return False
 		else:
 			return False
+	except:
+		return False
 	
 def main(argv):
 	global url
@@ -185,11 +160,9 @@ def main(argv):
 				
 				check_readme(url, component)
 					
-				check_license(url, component)
+				check_license(url, component)	
 
-				check_changelog(url, component)
-				
-				check_index(url, component)
+				check_changelog(url, component)	
 									
 				if index_of(url, "/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
@@ -202,11 +175,9 @@ def main(argv):
 
 				check_readme(url, component)
 					
-				check_license(url, component)
+				check_license(url, component)	
 
-				check_changelog(url, component)
-				
-				check_index(url, component)
+				check_changelog(url, component)	
 				
 				if index_of(url, "/administrator/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
