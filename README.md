@@ -1,4 +1,4 @@
-# Joomla Components Scanner
+# Joomla Scanner
 A free and open source software to find the components installed in Joomla CMS, built out of the ashes of Joomscan.
 
 # Features
@@ -24,8 +24,7 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Screenshot
 
-![alt Screenshot 0.2b](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.2b.png)
-![alt Screenshot 0.1b](http://cloud.draghetti.it/Rehost_Image/Joomla_Components_Scanner_0.1b.png)
+![alt Screenshot 0.4b](http://cloud.draghetti.it/Rehost_Image/Joomla_Scan_0.4b.png)
 
 # Requirements
 * Python
