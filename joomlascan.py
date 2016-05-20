@@ -6,16 +6,15 @@ import argparse
 from bs4 import BeautifulSoup
 
 dbarray = []
-https = False
 url = ""
-headerdesktop = {"User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", "Accept-Language": "it"}
+useragentdesktop = {"User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)", "Accept-Language": "it"}
 timeoutconnection = 5
 
 def hello():
 	print "-------------------------------------------"
 	print "      	 Joomla Components Scanner        "
 	print "   Usage: python joomlascan.py <target>    "
-	print "    Version 0.2b - Database Entries " + str(len(dbarray))
+	print "    Version 0.4b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
 	print "-------------------------------------------"
 
@@ -28,11 +27,19 @@ def check_url(url, path="/"):
 
 	fullurl = url + path
 	try:
-		conn = requests.get(fullurl, headers=headerdesktop, timeout=timeoutconnection, verify=False)
+		conn = requests.get(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
 		return conn.status_code
 	except StandardError:
 		return None
+		
+def check_url_head_content_length(url, path="/"):
 
+	fullurl = url + path
+	try:
+		conn = requests.head(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
+		return conn.headers["content-length"]
+	except StandardError:
+		return None
 
 def check_readme(url, component):
 	if check_url(url, "/components/" + component + "/README.txt") == 200:
@@ -40,6 +47,12 @@ def check_readme(url, component):
 
 	if check_url(url, "/components/" + component + "/readme.txt") == 200:
 		print "\t README file found \t > " + url + "/components/" + component + "/readme.txt"
+		
+	if check_url(url, "/components/" + component + "/README.md") == 200:
+		print "\t README file found \t > " + url + "/components/" + component + "/README.md"
+	
+	if check_url(url, "/components/" + component + "/readme.md") == 200:
+		print "\t README file found \t > " + url + "/components/" + component + "/readme.md"		
 		
 	if check_url(url, "/administrator/components/" + component + "/README.txt") == 200:
 		print "\t README file found \t > " + url + "/administrator/components/" + component + "/README.txt"
@@ -79,11 +92,36 @@ def check_changelog(url, component):
 	if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
 		print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/changelog.txt"	
 		
+def check_mainfest(url, component):
+	if check_url(url, "/components/" + component + "/MANIFEST.xml") == 200:
+		print "\t MANIFEST file found \t > " + url + "/components/" + component + "/MANIFEST.xml"
+
+	if check_url(url, "/components/" + component + "/manifest.xml") == 200:
+		print "\t MANIFEST file found \t > " + url + "/components/" + component + "/manifest.xml"
+		
+	if check_url(url, "/administrator/components/" + component + "/MANIFEST.xml") == 200:
+		print "\t MANIFEST file found \t > " + url + "/administrator/components/" + component + "/MANIFEST.xml"
+
+	if check_url(url, "/administrator/components/" + component + "/manifest.xml") == 200:
+		print "\t MANIFEST file found \t > " + url + "/administrator/components/" + component + "/manifest.xml"		
+		
+def check_index(url, component):
+	if check_url_head_content_length(url, "/components/" + component + "/index.htm") == 200 and check_url_head(url, "/components/" + component + "/index.htm") > 1000:
+		print "\t INDEX file descriptive found \t > " + url + "/components/" + component + "/index.htm"
+
+	if check_url_head_content_length(url, "/components/" + component + "/index.html") == 200 and check_url_head(url, "/components/" + component + "/index.html") > 1000:
+		print "\t INDEX file descriptive found \t > " + url + "/components/" + component + "/index.html"
+		
+	if check_url_head_content_length(url, "/administrator/components/" + component + "/INDEX.htm") == 200 and check_url_head(url, "/administrator/components/" + component + "/INDEX.htm") > 1000:
+		print "\t INDEX file descriptive found \t > " + url + "/administrator/components/" + component + "/INDEX.htm"
+
+	if check_url_head_content_length(url, "/administrator/components/" + component + "/INDEX.html") == 200 and check_url_head(url, "/administrator/components/" + component + "/INDEX.html") > 1000:
+		print "\t INDEX file descriptive found \t > " + url + "/administrator/components/" + component + "/INDEX.html"
 
 def index_of(url, path="/"):
 	fullurl = url + path
 	try:
-		page = requests.get(fullurl, headers=headerdesktop, timeout=timeoutconnection)
+		page = requests.get(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
 		soup = BeautifulSoup(page.text, "html.parser")
 		if soup.title:
 			titlepage = soup.title.string
@@ -123,23 +161,24 @@ def main(argv):
 	
 	if check_url(url) == 200:
 	
-		print ""
+		print "Check Site..."
 	
 		if check_url(url, "/robots.txt") == 200:
 			print "Robots file found: \t \t > " + url + "/robots.txt"
-			print ""
+		else:
+			print "No Robots file found"
 			
 		if check_url(url, "/error_log") == 200:
 			print "Error log found: \t \t > " + url + "/error_log"
-			print ""
-			
+		else:
+			print "No Error Log found"
 		
-		print "Start scan..."
 		print ""
+		print "Start scan..."
 	
 		for i in range(len(dbarray)):
 			component = dbarray[i]
-	
+		
 			if check_url(url, "/index.php?option=" + component) == 200:
 				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
 				
@@ -147,7 +186,11 @@ def main(argv):
 					
 				check_license(url, component)	
 
-				check_changelog(url, component)					
+				check_changelog(url, component)
+			
+				check_mainfest(url, component)
+				
+				check_index(url, component)			
 									
 				if index_of(url, "/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
@@ -156,14 +199,19 @@ def main(argv):
 					print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
 			
 			elif check_url(url, "/components/" + component + "/" ) == 200:
-				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component + "\t but possibly it is not active or protected"
+				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
+				print "\t But possibly it is not active or protected"
 				
 				check_readme(url, component)
 					
 				check_license(url, component)	
 
-				check_changelog(url, component)	
-									
+				check_changelog(url, component)
+			
+				check_mainfest(url, component)
+				
+				check_index(url, component)		
+				
 				if index_of(url, "/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
 
@@ -171,13 +219,18 @@ def main(argv):
 					print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
 										
 			elif check_url(url, "/administrator/components/" + component + "/" ) == 200:
-				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component + "\t on the administrator components"
+				print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
+				print "\t On the administrator components"
 
 				check_readme(url, component)
 					
 				check_license(url, component)	
 
-				check_changelog(url, component)	
+				check_changelog(url, component)
+			
+				check_mainfest(url, component)
+				
+				check_index(url, component)
 				
 				if index_of(url, "/administrator/components/" + component + "/"):
 					print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
