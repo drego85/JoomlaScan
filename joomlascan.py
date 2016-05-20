@@ -12,7 +12,7 @@ timeoutconnection = 5
 
 def hello():
 	print "-------------------------------------------"
-	print "      	 Joomla Components Scanner        "
+	print "      	     Joomla Scanner               "
 	print "   Usage: python joomlascan.py <target>    "
 	print "    Version 0.4b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
@@ -138,8 +138,7 @@ def main(argv):
 	global url
 
 	parser = argparse.ArgumentParser()
-	parser.add_argument('-u', '--url', action='store', dest='url',
-                    help='Url to be analyzed')
+	parser.add_argument('-u', '--url', action='store', dest='url', help='Url to be analyzed')
 	parser.add_argument('-v', '--version', action='version', version='%(prog)s 0.1b')
 
 	results = parser.parse_args()
