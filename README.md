@@ -1,4 +1,4 @@
-# Joomla Scanner
+# Joomla Scann
 A free and open source software to find the components installed in Joomla CMS, built out of the ashes of Joomscan.
 
 # Features
