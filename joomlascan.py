@@ -12,7 +12,7 @@ timeoutconnection = 5
 
 def hello():
 	print "-------------------------------------------"
-	print "      	     Joomla Scann                 "
+	print "      	     Joomla Scan                  "
 	print "   Usage: python joomlascan.py <target>    "
 	print "    Version 0.4b - Database Entries " + str(len(dbarray))
 	print "         created by Andrea Draghetti       "
