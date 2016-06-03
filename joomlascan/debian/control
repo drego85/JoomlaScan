@@ -1,0 +1,17 @@
+Source: joomlascan
+Section: main/utils
+Priority: extra
+Maintainer: Lorenzo "Palinuro" Faletra <eclipse@parrotsec.org>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.8
+Homepage: http://paterva.com
+Vcs-Git: git://github.com/parrotsec/joomlascan.git
+Vcs-Browser: https://github.com/ParrotSec/joomlascan
+
+Package: joomlascan
+Architecture: all
+Depends: ${misc:Depends}, python, python-beautifulsoup, python-bs4
+Description: Joomla scanner
+ A free and open source software to find
+ the components installed in Joomla CMS,
+ built out of the ashes of Joomscan.
