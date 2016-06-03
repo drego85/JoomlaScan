@@ -32,11 +32,47 @@ $ python joomlascan.py -u http://www.targetsite.com
 
 # Changelog
 
-* 2016.05.20 0.4beta > Find README.md, Find Manifes.xml, Find Index file of Components (Only if descriptive), User Agent and TimeOut on Python Request, Updated database from 587 to 656 components, Fix Cosmetics and Minor Fix.
-* 2016.03.18 0.3beta > Find index file on components directory
-* 2016.03.14 0.2beta > Find administrator components and file Readme, Changelog, License.
-* 2016.02.12 0.1beta > Initial release
+joomlascan (0.5) testing; urgency=medium
+
+	* Debianize source code
+	* Create Makefile
+	* Test dependencies on Debian and Parrot
+	* Beautify changelog
+	* Import joomlascan into Parrot repository
+
+ -- Lorenzo "Palinuro" Faletra <eclipse@parrotsec.org>  Fri, 03 Jun 2016 16:49:38 +0200
+
+joomlascan (0.4) experimental; urgency=medium
+
+	* Find README.md
+	* Find Manifes.xml
+	* Find Index file of Components (Only if descriptive)
+	* User Agent and TimeOut on Python Request
+	* Updated database from 587 to 656 components
+	* Fix Cosmetics and Minor Fix.
+
+ -- Andrea Draghetti <info@andreadraghetti.it>  20 Apr 2016
+ 
+joomlascan (0.3) experimental; urgency=medium
+
+	* Find index file on components directory
+
+ -- Andrea Draghetti <info@andreadraghetti.it>  18 Mar 2016
+ 
+joomlascan (0.2) experimental; urgency=medium
+
+	* Find administrator components and file Readme, Changelog, License.
+
+ -- Andrea Draghetti <info@andreadraghetti.it>  14 Mar 2016
+
+joomlascan (0.1) experimental; urgency=medium
+
+	* Initial release
+
+ -- Andrea Draghetti <info@andreadraghetti.it>  12 Feb 2016
 
 # License
 GNU, version 3
+
+
 
