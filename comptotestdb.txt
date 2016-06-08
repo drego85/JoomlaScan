@@ -48,6 +48,7 @@ com_artportal
 com_asortyment
 com_astatspro
 com_autartimonial
+com_availcal
 com_awd_song
 com_awesom
 com_babackup
@@ -305,6 +306,7 @@ com_jmovies
 com_jmsfileseller
 com_jnews
 com_jnewsletter
+com_jobgrokapp
 com_jobline
 com_jobprofile
 com_joltcard
@@ -655,3 +657,4 @@ com_zoom
 com_zoomportfolio
 com_ztautolink
 com_alfcontact
+com_hikasho
