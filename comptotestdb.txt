@@ -318,6 +318,7 @@ com_joobb
 com_jooget
 com_joom12pic
 com_joomdle
+com_joomdoc
 com_joomdocs
 com_joomgalaxy
 com_joomla
