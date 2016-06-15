@@ -17,6 +17,7 @@ com_admin
 com_adsmanager
 com_advancedpoll
 com_advert
+com_affiliatetracker
 com_agora
 com_agoragroup
 com_aicontactsafe
@@ -92,6 +93,7 @@ com_casinobase
 com_catalogproduction
 com_catalogshop
 com_category
+com_catfiltering
 com_cbe
 com_ccboard
 com_ccinvoices
@@ -475,6 +477,7 @@ com_oziogallery2
 com_pandafminigames
 com_panoramic
 com_parcoauto
+com_payplans
 com_paxgallery
 com_paxxgallery
 com_pbbooking
