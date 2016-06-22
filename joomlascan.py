@@ -78,6 +78,12 @@ def check_license(url, component):
 
 	if check_url(url, "/administrator/components/" + component + "/license.txt") == 200:
 		print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/license.txt"	
+	
+        if check_url(url, "/components/" + component + "/" + component[4:] + ".xml") == 200:
+            print "\t LICENSE file found \t > " + url + "/components/" + component + "/" + component[4:] + ".xml"
+		
+        if check_url(url, "/administrator/components/" + component + "/" + component[4:] + ".xml") == 200:
+            print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/" + component[4:] + ".xml"
 		
 def check_changelog(url, component):
 	if check_url(url, "/components/" + component + "/CHANGELOG.txt") == 200:
