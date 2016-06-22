@@ -81,6 +81,7 @@ com_brightweblinks
 com_bsadv
 com_bsq
 com_bsqsitestats
+com_bt_media
 com_bulkenquery
 com_calcbuilder
 com_calendar
@@ -518,6 +519,7 @@ com_properties
 com_propertylab
 com_puarcade
 com_publication
+com_publisher
 com_qcontacts
 com_qpersonel
 com_question
