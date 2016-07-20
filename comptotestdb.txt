@@ -242,6 +242,7 @@ com_graphics
 com_grid
 com_gsticketsystem
 com_guide
+com_guru
 com_hashcash
 com_hbssearch
 com_hdflvplayer
@@ -276,6 +277,7 @@ com_jacomment
 com_jashowcase
 com_javoice
 com_jb2
+com_jbpeople
 com_jbudgetsmagic
 com_jcafe
 com_jcalpro
@@ -316,6 +318,7 @@ com_joltcard
 com_jombib
 com_jomdirectory
 com_jomestate
+com_jomres
 com_jomtube
 com_joobb
 com_jooget
@@ -436,6 +439,7 @@ com_mp3
 com_mscomment
 com_mtree
 com_multibanners
+com_music
 com_myalbum
 com_myblog
 com_mycar
@@ -601,10 +605,12 @@ com_tech
 com_techfolio
 com_thopper
 com_thyme
+com_threate
 com_tickets
 com_timereturns
 com_timetrack
 com_tophotelmodule
+com_topics
 com_tour
 com_tpdugg
 com_tpjobs
