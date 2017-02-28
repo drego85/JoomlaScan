@@ -53,10 +53,12 @@ com_astatspro
 com_autartimonial
 com_availcal
 com_awd_song
+com_awdwall
 com_awesom
 com_babackup
 com_banners
 com_bayesiannaivefilter
+com_bazaar
 com_bbs
 com_bca-rss-syndicator
 com_be
@@ -125,6 +127,9 @@ com_color
 com_colorlab
 com_commedia
 com_community
+com_communitypolls
+com_communityquiz
+com_communitysurveys
 com_competitions
 com_comprofiler
 com_connect
@@ -134,6 +139,7 @@ com_contactformmaker
 com_contactinfo
 com_content
 com_contenthistory
+com_contentmap
 com_contushdvideoshare
 com_cpg
 com_creativecontactform
@@ -154,6 +160,7 @@ com_detail
 com_digifolio
 com_digistore
 com_dioneformwizard
+com_directorix
 com_directory
 com_discussions
 com_djartgallery
@@ -162,6 +169,7 @@ com_djiceshoutbox
 com_dms
 com_doc
 com_docman
+com_docmanpaypal
 com_donateprocess
 com_doqment
 com_downloads
@@ -181,11 +189,13 @@ com_enmasse
 com_equipment
 com_equotes
 com_esearch
+com_eshop
 com_eslamiat
 com_estateagent
 com_event
 com_eventbooking
 com_eventing
+com_eventix
 com_eventlist
 com_events
 com_ewriting
@@ -246,12 +256,15 @@ com_geocontent
 com_gigcal
 com_gk3_photoslide
 com_gmaps
+com_gnosis
 com_golfcourseguid
 com_golfcourseguide
 com_googlebase
 com_goverment
+com_gpstools
 com_graphics
 com_grid
+com_groovygallery
 com_gsticketsystem
 com_guide
 com_guru
@@ -282,6 +295,7 @@ com_informations
 com_inneradmission
 com_installer
 com_inter
+com_intranet
 com_ionfiles
 com_iproperty
 com_is
@@ -298,6 +312,7 @@ com_jcafe
 com_jcalpro
 com_jce
 com_jcommunity
+com_jcruisereservation
 com_jcs
 com_jd-wiki
 com_jd-wp
@@ -332,6 +347,7 @@ com_jfbconnect
 com_jfuploader
 com_jgen
 com_jgrid
+com_jhotelreservation
 com_jim
 com_jimtawl
 com_jinc
@@ -344,6 +360,7 @@ com_jnewsletter
 com_jobgrokapp
 com_jobline
 com_jobprofile
+com_jofacebookgallery
 com_joltcard
 com_jombib
 com_jomdirectory
@@ -351,6 +368,7 @@ com_jomestate
 com_jomres
 com_jomtube
 com_joobb
+com_joodb
 com_jooget
 com_joom12pic
 com_joomblog
@@ -406,6 +424,8 @@ com_jvideoclip
 com_jvideodirect
 com_jvotesystem
 com_k2
+com_k2ajaxsearch
+com_k2store
 com_kbase
 com_knowledgebase
 com_kochsuite
@@ -437,6 +457,7 @@ com_macgallery
 com_machine
 com_mad4joomla
 com_madeira
+com_magicdealsweb
 com_maian15
 com_maianmedia
 com_maianmusic
@@ -446,6 +467,7 @@ com_mambatstaff
 com_mambelfish
 com_mambospgm
 com_mambowiki
+com_maqmahelpdesk
 com_marketplace
 com_markt
 com_matamko
@@ -485,6 +507,7 @@ com_mydyngallery
 com_myform
 com_mygallery
 com_myhome
+com_mymsg
 com_mysms
 com_mytube
 com_n-forms
@@ -508,6 +531,7 @@ com_obsuggest
 com_odudeprofile
 com_omnirealestate
 com_omphotogallery
+com_onevote
 com_ongallery
 com_ongumatimesheet20
 com_onismusic
@@ -516,6 +540,7 @@ com_onisquotes
 com_onlineflashquiz
 com_ornekek
 com_osproperty
+com_osservicesbooking
 com_ownbiblio
 com_oziogallery
 com_oziogallery2
@@ -592,6 +617,7 @@ com_rokdownloads
 com_rokmodule
 com_rpl
 com_rsappt_pro2
+com_rsappt_pro3
 com_rsbook_15
 com_rsfiles
 com_rsgallery
@@ -636,6 +662,7 @@ com_some
 com_spa
 com_spidercalendar
 com_spidercatalog
+com_spiderfacebook
 com_spiderfaq
 com_spielothek
 com_sponsorwall
@@ -647,6 +674,7 @@ com_swmenupro
 com_szallasok
 com_tag
 com_team
+com_teamdisplay
 com_tech
 com_techfolio
 com_thopper
@@ -668,6 +696,7 @@ com_uhp
 com_uhp2
 com_ultimateportfolio
 com_user
+com_userextranet
 com_users
 com_utchat
 com_vehiclemanager
@@ -687,6 +716,7 @@ com_webhosting
 com_weblinks
 com_webring
 com_wire_immogest
+com_wmt_content_timeline
 com_wmtgallery
 com_wmtpic
 com_wmtportfolio
