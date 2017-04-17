@@ -4,6 +4,7 @@ com_a6mambohelpdesk
 com_aardvertiser
 com_ab
 com_abc
+com_abstract
 com_acajoom
 com_acctexp
 com_aceftp
@@ -18,11 +19,13 @@ com_admin
 com_adsmanager
 com_advancedpoll
 com_advert
+com_advertisementboard
 com_affiliatetracker
 com_agora
 com_agoragroup
 com_aicontactsafe
 com_ajaxchat
+com_akeeba
 com_akobook
 com_akocomment
 com_akogallery
@@ -36,6 +39,7 @@ com_allhotels
 com_alphacontent
 com_alphauserpoints
 com_altas
+com_altauserpoints
 com_amblog
 com_amocourse
 com_annonces
@@ -55,6 +59,7 @@ com_availcal
 com_awd_song
 com_awdwall
 com_awesom
+com_aysquiz
 com_babackup
 com_banners
 com_bayesiannaivefilter
@@ -141,6 +146,7 @@ com_content
 com_contenthistory
 com_contentmap
 com_contushdvideoshare
+com_coupon
 com_cpg
 com_creativecontactform
 com_crhotels
@@ -229,6 +235,7 @@ com_flippingbook
 com_flipwall
 com_flyspray
 com_fm
+com_focalpoint
 com_foevpartners
 com_foobla_suggestions
 com_football
@@ -266,6 +273,7 @@ com_graphics
 com_grid
 com_groovygallery
 com_gsticketsystem
+com_guesser
 com_guide
 com_guru
 com_hashcash
@@ -310,6 +318,7 @@ com_jbudgetsmagic
 com_jbusinessdirectory
 com_jcafe
 com_jcalpro
+com_jcart
 com_jce
 com_jcommunity
 com_jcruisereservation
@@ -358,6 +367,7 @@ com_jmsfileseller
 com_jnews
 com_jnewsletter
 com_jobgrokapp
+com_jobgroklist
 com_jobline
 com_jobprofile
 com_jofacebookgallery
@@ -417,6 +427,7 @@ com_jtagcalendar
 com_jtickets
 com_jumi
 com_juser
+com_jux_eventon
 com_jvcomment
 com_jvehicles
 com_jvideo
@@ -483,6 +494,8 @@ com_minibb
 com_misterestate
 com_mmp
 com_model
+com_modern_booking
+com_monthlyarchive
 com_moodle
 com_moofaq
 com_mosets
@@ -538,7 +551,9 @@ com_onismusic
 com_onispetitions
 com_onisquotes
 com_onlineflashquiz
+com_opencart
 com_ornekek
+com_os_cck
 com_osproperty
 com_osservicesbooking
 com_ownbiblio
@@ -600,6 +615,7 @@ com_rapidrecipe
 com_rdautos
 com_realestatemanager
 com_realtyna
+com_recipe
 com_recly
 com_record
 com_redshop
@@ -647,6 +663,7 @@ com_simpleboard
 com_simpledownload
 com_simplefaq
 com_simpleimageupload
+com_simplemembership
 com_simplephotogallery
 com_simpleshop
 com_simpleswfupload
@@ -669,6 +686,7 @@ com_sponsorwall
 com_sportspredictions
 com_staticxt
 com_store
+com_streetguess
 com_surveymanager
 com_swmenupro
 com_szallasok
@@ -705,7 +723,10 @@ com_videodb
 com_videoflow
 com_videogallery
 com_videogallerylite
+com_vikappointments
 com_vikbooking
+com_vikrentcar
+com_vikrentitems
 com_virtuemart
 com_visa
 com_volunteer
