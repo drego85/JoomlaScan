@@ -22,12 +22,14 @@ A free and open source software to find the components installed in Joomla CMS, 
 usage: python joomlascan.py [-h] [-u URL] [-t THREADS] [-v]
 
 optional arguments:
-  -h, --help            show this help message and exit
-  -u URL, --url URL     The Joomla URL/domain to scan.
-  -t THREADS, --threads THREADS
-                        The number of threads to use when multi-threading
-                        requests (default: 10).
-  -v, --version         show program's version number and exit
+
+    -h, --help              show this help message and exit
+ 
+    -u URL, --url URL       The Joomla URL/domain to scan.
+    -t THREADS, --threads   THREADS
+                            The number of threads to use when multi-threading
+                            requests (default: 10).
+    -v, --version           show program's version number and exit
 
 # Screenshot
 
