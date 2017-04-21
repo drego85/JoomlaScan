@@ -38,6 +38,7 @@ optional arguments:
 # Requirements
 * Python
 * beautifulsoup4 (To install this library from terminal type: $ sudo easy_install beautifulsoup4 or $ sudo pip install beautifulsoup4)
+* python-requests
 
 # Changelog
 
