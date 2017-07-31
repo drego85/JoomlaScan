@@ -109,6 +109,7 @@ com_catfiltering
 com_cbe
 com_ccboard
 com_ccinvoices
+com_ccnewsletter
 com_cgtestimonial
 com_chronoconnectivity
 com_chronocontact
@@ -224,6 +225,7 @@ com_fantasytournament
 com_faq
 com_fastball
 com_feederator
+com_fields
 com_filebase
 com_filiale
 com_fireboard
@@ -325,6 +327,7 @@ com_jcruisereservation
 com_jcs
 com_jd-wiki
 com_jd-wp
+com_jdbexport
 com_jdirectory
 com_jeajaxeventcalendar
 com_jeauction
@@ -402,6 +405,7 @@ com_joomloc
 com_joomlub
 com_joomnik
 com_joomradio
+com_joomrecipe
 com_joomsport
 com_joomtouch
 com_joomtracker
@@ -521,6 +525,7 @@ com_myform
 com_mygallery
 com_myhome
 com_mymsg
+com_myportfolio
 com_mysms
 com_mytube
 com_n-forms
@@ -564,6 +569,7 @@ com_panoramic
 com_parcoauto
 com_paxgallery
 com_paxxgallery
+com_payage
 com_payplans
 com_pbbooking
 com_pcchess
