@@ -462,6 +462,7 @@ com_liveticker
 com_lm
 com_lmo
 com_lms
+com_lmsking
 com_loudmounth
 com_loudmouth
 com_lovefactory
@@ -584,6 +585,7 @@ com_phocamaps
 com_photo
 com_photomapgallery
 com_php
+com_phpbridge
 com_phpshop
 com_picasa2gallery
 com_picsell
@@ -664,6 +666,7 @@ com_sexypolling
 com_seyret
 com_sg
 com_showdown
+com_simgenealogy
 com_simple
 com_simpleboard
 com_simpledownload
@@ -719,6 +722,7 @@ com_turtushout
 com_uhp
 com_uhp2
 com_ultimateportfolio
+com_upl
 com_user
 com_userextranet
 com_users
