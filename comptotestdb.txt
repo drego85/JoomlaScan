@@ -25,6 +25,7 @@ com_agora
 com_agoragroup
 com_aicontactsafe
 com_ajaxchat
+com_ajaxquiz
 com_akeeba
 com_akobook
 com_akocomment
@@ -95,6 +96,7 @@ com_bt_media
 com_bulkenquery
 com_calcbuilder
 com_calendar
+com_calendarplanner
 com_camelcitydb2
 com_camp
 com_candle
@@ -384,6 +386,7 @@ com_joobb
 com_joodb
 com_jooget
 com_joom12pic
+com_joomanager
 com_joomblog
 com_joomdle
 com_joomdoc
@@ -396,6 +399,7 @@ com_joomlaboard
 com_joomladate
 com_joomlaflashfun
 com_joomlalib
+com_joomlaquiz
 com_joomlaradiov5
 com_joomlaupdate
 com_joomlavvz
@@ -486,6 +490,7 @@ com_mambowiki
 com_maqmahelpdesk
 com_marketplace
 com_markt
+com_masterforms
 com_matamko
 com_mcquiz
 com_mdigg
@@ -560,6 +565,7 @@ com_onlineflashquiz
 com_opencart
 com_ornekek
 com_os_cck
+com_osdownloads
 com_osproperty
 com_osservicesbooking
 com_ownbiblio
@@ -591,6 +597,7 @@ com_picasa2gallery
 com_picsell
 com_pinboard
 com_pms
+com_pofos
 com_poll
 com_pollxt
 com_ponygallery
@@ -599,6 +606,7 @@ com_portfol
 com_portfoliogallery
 com_poweradmin
 com_prayercenter
+com_price_alert
 com_pro
 com_pro_desk
 com_prod
@@ -691,6 +699,7 @@ com_spidercatalog
 com_spiderfacebook
 com_spiderfaq
 com_spielothek
+com_spmoviedb
 com_sponsorwall
 com_sportspredictions
 com_staticxt
@@ -719,6 +728,7 @@ com_trade
 com_treeg
 com_ttvideo
 com_turtushout
+com_twitchtv
 com_uhp
 com_uhp2
 com_ultimateportfolio
