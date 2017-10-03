@@ -113,6 +113,7 @@ com_ccboard
 com_ccinvoices
 com_ccnewsletter
 com_cgtestimonial
+com_checklist
 com_chronoconnectivity
 com_chronocontact
 com_cinema
@@ -550,6 +551,7 @@ com_nkc
 com_noticeboard
 com_noticias
 com_novasfh
+com_ns_downloadshop
 com_ob
 com_obsuggest
 com_odudeprofile
@@ -705,6 +707,7 @@ com_sportspredictions
 com_staticxt
 com_store
 com_streetguess
+com_surveyforce
 com_surveymanager
 com_swmenupro
 com_szallasok
@@ -784,6 +787,7 @@ com_youtubegallery
 com_yvcomment
 com_zcalendar
 com_zelig
+com_zhyandexmap
 com_zina
 com_zoom
 com_zoomportfolio
