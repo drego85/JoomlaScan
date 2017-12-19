@@ -550,6 +550,7 @@ com_news
 com_newsfeeds
 com_newsflash
 com_nfn
+com_nge
 com_niceajaxpoll
 com_nicetalk
 com_nkc
