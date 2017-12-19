@@ -84,6 +84,7 @@ com_bookflip
 com_bookjoomlas
 com_booklibrary
 com_bookmarks
+com_bookpro
 com_books
 com_boss
 com_br
@@ -318,8 +319,10 @@ com_jacomment
 com_jashowcase
 com_javoice
 com_jb2
+com_jbcatalog
 com_jbpeople
 com_jbudgetsmagic
+com_jbuildozer
 com_jbusinessdirectory
 com_jcafe
 com_jcalpro
@@ -351,12 +354,14 @@ com_jemessenger
 com_jepoll
 com_jeportfolio
 com_jepropertyfinder
+com_jequestions
 com_jequizmanagement
 com_jequoteform
 com_jesectionfinder
 com_jesubmit
 com_jeticket
 com_jetour
+com_jevideogallery
 com_jevideorate
 com_jfbconnect
 com_jfuploader
@@ -735,8 +740,10 @@ com_twitchtv
 com_uhp
 com_uhp2
 com_ultimateportfolio
+com_uniterevolution2
 com_upl
 com_user
+com_userbench
 com_userextranet
 com_users
 com_utchat
