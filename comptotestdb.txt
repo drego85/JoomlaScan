@@ -24,6 +24,7 @@ com_affiliatetracker
 com_agora
 com_agoragroup
 com_aicontactsafe
+com_ajax
 com_ajaxchat
 com_ajaxquiz
 com_akeeba
@@ -384,8 +385,10 @@ com_jobprofile
 com_jofacebookgallery
 com_joltcard
 com_jombib
+com_jomcomdev
 com_jomdirectory
 com_jomestate
+com_jomholiday
 com_jomres
 com_jomtube
 com_joobb
@@ -438,6 +441,8 @@ com_jstore
 com_jsubscription
 com_jsupport
 com_jtagcalendar
+com_jtagmembersdirectory
+com_jtagminicart
 com_jtickets
 com_jumi
 com_juser
