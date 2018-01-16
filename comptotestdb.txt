@@ -192,6 +192,7 @@ com_dtregister
 com_dv
 com_easy_youtube_gallery
 com_easybook
+com_easydiscuss
 com_easygb
 com_ecommercewd
 com_education
