@@ -154,6 +154,7 @@ com_contenthistory
 com_contentmap
 com_contushdvideoshare
 com_coupon
+com_cpeventcalendar
 com_cpg
 com_creativecontactform
 com_crhotels
@@ -252,6 +253,7 @@ com_football
 com_formmaker
 com_formtool
 com_forum
+com_foxcontact
 com_fq
 com_fss
 com_full
@@ -343,6 +345,7 @@ com_jeajaxeventcalendar
 com_jeauction
 com_jeauto
 com_jeawdsong
+com_jeclassifieds
 com_jeclassifyads
 com_jedirectory
 com_jeemasms
@@ -354,13 +357,16 @@ com_jeguestbook
 com_jejob
 com_jek2storymultipleform
 com_jem
+com_jemembership
 com_jemessenger
+com_jepaypervideo
 com_jepoll
 com_jeportfolio
 com_jepropertyfinder
 com_jequestions
 com_jequizmanagement
 com_jequoteform
+com_jereverseauction
 com_jesectionfinder
 com_jesubmit
 com_jeticket
@@ -376,9 +382,11 @@ com_jim
 com_jimtawl
 com_jinc
 com_jjgallery
+com_jlike
 com_jmarket
 com_jmovies
 com_jmsfileseller
+com_jmsmusic
 com_jnews
 com_jnewsletter
 com_jobgrokapp
@@ -440,6 +448,8 @@ com_jreviews
 com_jscalendar
 com_jsjobs
 com_jsplocation
+com_jsptickets
+com_jssupportticket
 com_jstore
 com_jsubscription
 com_jsupport
@@ -770,6 +780,7 @@ com_vikrentcar
 com_vikrentitems
 com_virtuemart
 com_visa
+com_visualcalendar
 com_vmap
 com_volunteer
 com_vr
@@ -806,6 +817,8 @@ com_youtubegallery
 com_yvcomment
 com_zcalendar
 com_zelig
+com_zhbaidumap
+com_zhgooglemap
 com_zhyandexmap
 com_zina
 com_zoom
