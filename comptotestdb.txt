@@ -25,6 +25,8 @@ com_actions
 com_activities
 com_actualite
 com_acymailing
+com_acysms
+com_acysms_express
 com_adagency
 com_addressbook
 com_adds
@@ -97,6 +99,7 @@ com_awdwall
 com_awesom
 com_awiki
 com_aysquiz
+com_b2jcontact
 com_b2portfolio
 com_babackup
 com_banners
@@ -644,7 +647,6 @@ com_jstore
 com_jsubscription
 com_jsupport
 com_jtagcalendar
-com_jtagcalendar
 com_jtagmembersdirectory
 com_jtagminicart
 com_jticketing
@@ -829,7 +831,6 @@ com_omphotogallery
 com_onevote
 com_ongallery
 com_ongumatimesheet20
-com_onismusic
 com_onismusic
 com_onispetitions
 com_onisquotes
