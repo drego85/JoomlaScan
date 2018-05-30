@@ -224,6 +224,7 @@ com_contenthistory
 com_contentmap
 com_controller
 com_contushdvideoshare
+com_convertforms
 com_countries
 com_coupon
 com_cpeventcalendar
@@ -1151,6 +1152,7 @@ com_wgpicasa
 com_wines
 com_wire_immogest
 com_wisroyq
+com_wkoc
 com_wmi
 com_wmt_content_timeline
 com_wmtgallery
