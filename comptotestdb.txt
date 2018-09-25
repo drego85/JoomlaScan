@@ -67,6 +67,7 @@ com_alphauserpoints
 com_altas
 com_altauserpoints
 com_amblog
+com_amgallery
 com_aml_2
 com_amocourse
 com_annonces
@@ -88,6 +89,7 @@ com_artportal
 com_as
 com_asortyment
 com_astatspro
+com_auctionfactory
 com_autartimonial
 com_autartitarot
 com_autostand
@@ -749,6 +751,7 @@ com_memorybook
 com_menu
 com_mezun
 com_mgm
+com_microdealfactory
 com_minibb
 com_misterestate
 com_mmp
