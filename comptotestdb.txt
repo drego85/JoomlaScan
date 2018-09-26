@@ -42,6 +42,7 @@ com_agenda
 com_agora
 com_agoragroup
 com_aicontactsafe
+com_aindexdictionaries
 com_airmonoblock
 com_aist
 com_ajax
@@ -201,6 +202,7 @@ com_clubmanager
 com_cmimarketplace
 com_cmotour
 com_cms
+com_collectionfactory
 com_collector
 com_colophon
 com_color
@@ -282,6 +284,7 @@ com_dshop
 com_dt-register
 com_dtracker
 com_dtregister
+com_dutchfactory
 com_dv
 com_dwgraphs
 com_easy_youtube_gallery
@@ -326,6 +329,7 @@ com_extplorer-test1
 com_extplorer-test2
 com_extplorer-test3
 com_extrasearch
+com_extroform
 com_ezautos
 com_ezine
 com_ezstore
@@ -571,6 +575,7 @@ com_jobgrokapp
 com_jobgroklist
 com_jobline
 com_jobprofile
+com_jobsfactory
 com_jofacebookgallery
 com_joltcard
 com_jombib
@@ -868,6 +873,7 @@ com_pbbooking
 com_pc
 com_pcchess
 com_pccookbook
+com_pennyfactory
 com_people
 com_peoplebook
 com_perchagallery
@@ -928,15 +934,18 @@ com_publisher
 com_qcontacts
 com_qpersonel
 com_question
+com_questions
 com_quickfaq
 com_quicknews
 com_quiz
 com_quran
 com_races
 com_radio
+com_rafflefactory
 com_rand
 com_ranking
 com_rapidrecipe
+com_rbids
 com_rd_download
 com_rdautos
 com_realestatemanager
@@ -1033,6 +1042,7 @@ com_smslist
 com_sobi2
 com_soccerbet
 com_socialads
+com_socialfactory
 com_socialpinboard
 com_software
 com_solidres
@@ -1063,6 +1073,7 @@ com_streetguess
 com_surveyforce
 com_surveymanager
 com_svmap
+com_swapfactory
 com_sweetykeeper
 com_swmenufree4
 com_swmenupro
@@ -1086,6 +1097,7 @@ com_tickets
 com_tienda
 com_timereturns
 com_timetable
+com_timetableschedule
 com_timetrack
 com_tophotelmodule
 com_topics
