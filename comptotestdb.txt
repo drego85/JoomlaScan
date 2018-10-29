@@ -300,6 +300,7 @@ com_ekrishta
 com_elite
 com_elite_experts
 com_emcomposer
+com_emgallery
 com_enmasse
 com_ensenanzas
 com_eportfolio
