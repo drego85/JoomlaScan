@@ -1211,3 +1211,4 @@ com_zina
 com_zoom
 com_zoomportfolio
 com_ztautolink
+com_jephotogallery
