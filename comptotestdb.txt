@@ -532,6 +532,7 @@ com_jemediaplayer
 com_jemembership
 com_jemessenger
 com_jepaypervideo
+com_jephotogallery
 com_jepoll
 com_jeportfolio
 com_jepropertyfinder
@@ -593,6 +594,7 @@ com_joom12pic
 com_joomanager
 com_joomblog
 com_joomclip
+com_joomcrm
 com_joomdle
 com_joomdoc
 com_joomdocs
@@ -636,6 +638,7 @@ com_jpad
 com_jphone
 com_jphoto
 com_jpodium
+com_jpprojects
 com_jprojectmanager
 com_jquarks4s
 com_jquickcontact
@@ -1211,4 +1214,3 @@ com_zina
 com_zoom
 com_zoomportfolio
 com_ztautolink
-com_jephotogallery
