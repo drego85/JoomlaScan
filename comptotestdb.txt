@@ -217,6 +217,7 @@ com_comp
 com_competitions
 com_component
 com_comprofiler
+com_config
 com_connect
 com_contact
 com_contact_enhanced
@@ -292,6 +293,7 @@ com_easyblog
 com_easybook
 com_easydiscuss
 com_easygb
+com_easyshop
 com_ecommercewd
 com_econtent
 com_education
@@ -498,6 +500,7 @@ com_jcafe
 com_jcalpro
 com_jcart
 com_jce
+com_jclassifiedsmanager
 com_jcollection
 com_jcomments
 com_jcommunity
@@ -1065,6 +1068,7 @@ com_spmoviedb
 com_sponsorwall
 com_sportfusion
 com_sportspredictions
+com_sppagebuilder
 com_spsnewsletter
 com_sqlreport
 com_squadmanagement
@@ -1135,6 +1139,8 @@ com_userextranet
 com_users
 com_userstatus
 com_utchat
+com_vaccount
+com_vbizz
 com_vehiclemanager
 com_versioning
 com_videodb
@@ -1157,6 +1163,9 @@ com_vmap
 com_voj
 com_volunteer
 com_vr
+com_vrestaurant
+com_vreview
+com_vwishlist
 com_vxdate
 com_wallpapers
 com_waticketsystem
