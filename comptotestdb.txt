@@ -481,6 +481,7 @@ com_itarmory
 com_items
 com_ixxocart
 com_j-projects
+com_j2store
 com_jabode
 com_jacomment
 com_jajobboard
