@@ -79,6 +79,7 @@ com_appointment
 com_aprice
 com_arcadegames
 com_archeryscores
+com_ariquiz
 com_artforms
 com_article
 com_articleman
@@ -559,6 +560,7 @@ com_jgen
 com_jgive
 com_jgrid
 com_jhotelreservation
+com_jifile
 com_jigsaw
 com_jim
 com_jimtawl
