@@ -21,6 +21,7 @@ com_acooldebate
 com_acprojects
 com_acstartseite
 com_acteammember
+com_actionlogs
 com_actions
 com_activities
 com_actualite
