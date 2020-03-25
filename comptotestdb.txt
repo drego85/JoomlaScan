@@ -431,6 +431,7 @@ com_hbooking
 com_hbssearch
 com_hdflvplayer
 com_hdvideoshare
+com_hdwplayer
 com_healthstats
 com_hello
 com_hello_world
