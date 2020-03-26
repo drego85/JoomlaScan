@@ -407,6 +407,7 @@ com_gigcal
 com_gigfe
 com_gk3_photoslide
 com_gmap
+com_gmapfp
 com_gmaps
 com_gnosis
 com_golfcourseguid
