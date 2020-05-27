@@ -1198,6 +1198,7 @@ com_wrapper
 com_x-shop
 com_xball
 com_xcloner-backupandrestore
+com_xcloner-backupandstore
 com_xcomp
 com_xeslidegalfx
 com_xevidmegahd
