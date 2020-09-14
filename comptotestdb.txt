@@ -873,6 +873,7 @@ com_ownbiblio
 com_oziogallery
 com_oziogallery2
 com_packages
+com_pago
 com_pandafminigames
 com_panoramic
 com_parcoauto
