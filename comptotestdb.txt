@@ -25,6 +25,7 @@ com_actionlogs
 com_actions
 com_activities
 com_actualite
+com_acym
 com_acymailing
 com_acysms
 com_acysms_express
@@ -107,6 +108,7 @@ com_aysquiz
 com_b2jcontact
 com_b2portfolio
 com_babackup
+com_baforms
 com_banners
 com_bayesiannaivefilter
 com_bazaar
