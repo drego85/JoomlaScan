@@ -1,246 +1,145 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import sys
-import httplib
 import requests
 import argparse
 from bs4 import BeautifulSoup
 import threading
 import time
+from colorama import init, Fore
+from tqdm import tqdm
+
+init(autoreset=True)
 
 dbarray = []
 url = ""
-useragentdesktop = {"User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)",
-                    "Accept-Language": "it"}
 timeoutconnection = 5
-pool = None
-swversion = "0.5beta"
-
+session = requests.Session()
+aliversion = "1.0 Ready"
 
 def hello():
-    print "-------------------------------------------"
-    print "      	     Joomla Scan                  "
-    print "   Usage: python joomlascan.py <target>    "
-    print "    Version " + swversion + " - Database Entries " + str(len(dbarray))
-    print "         created by Andrea Draghetti       "
-    print "-------------------------------------------"
-
+    print(Fore.GREEN + "-------------------------------------------")
+    print("             Joomla Scan                  ")
+    print("   Usage: python joomlascan.py <target>    ")
+    print("    Version " + aliversion + " - Updates " + str(len(dbarray)))
+    print("created by Andrea Draghetti , Edited By AliElTop")
+    print("-------------------------------------------")
 
 def load_component():
     with open("comptotestdb.txt", "r") as f:
         for line in f:
-            dbarray.append(line[:-1]) if line[-1] == "\n" else dbarray.append(line)
+            dbarray.append(line.strip())
 
-
-def check_url(url, path="/"):
-    fullurl = url + path
+def check_url(url, headers, path="/"):
+    full_url = url + path
     try:
-        conn = requests.get(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
-        if conn.headers["content-length"] != "0":
+        conn = requests.get(full_url, headers=headers, timeout=timeoutconnection, verify=False)
+        if conn.headers.get("content-length") != "0":
             return conn.status_code
         else:
             return 404
-    except StandardError:
+    except Exception:
         return None
 
-
-def check_url_head_content_length(url, path="/"):
-    fullurl = url + path
-    try:
-        conn = requests.head(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
-        return conn.headers["content-length"]
-    except StandardError:
-        return None
-
+def find_file(url, component, filenames):
+    for filename in filenames:
+        if check_url(url, f"/components/{component}/{filename}") is not None:
+            return filename
+        if check_url(url, f"/administrator/components/{component}/{filename}") is not None:
+            return filename
+    return None
 
 def check_readme(url, component):
-    if check_url(url, "/components/" + component + "/README.txt") == 200:
-        print "\t README file found \t > " + url + "/components/" + component + "/README.txt"
-
-    if check_url(url, "/components/" + component + "/readme.txt") == 200:
-        print "\t README file found \t > " + url + "/components/" + component + "/readme.txt"
-
-    if check_url(url, "/components/" + component + "/README.md") == 200:
-        print "\t README file found \t > " + url + "/components/" + component + "/README.md"
-
-    if check_url(url, "/components/" + component + "/readme.md") == 200:
-        print "\t README file found \t > " + url + "/components/" + component + "/readme.md"
-
-    if check_url(url, "/administrator/components/" + component + "/README.txt") == 200:
-        print "\t README file found \t > " + url + "/administrator/components/" + component + "/README.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/readme.txt") == 200:
-        print "\t README file found \t > " + url + "/administrator/components/" + component + "/readme.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/README.md") == 200:
-        print "\t README file found \t > " + url + "/administrator/components/" + component + "/README.md"
-
-    if check_url(url, "/administrator/components/" + component + "/readme.md") == 200:
-        print "\t README file found \t > " + url + "/administrator/components/" + component + "/readme.md"
-
+    filenames = ["README.txt", "readme.txt", "README.md", "readme.md"]
+    found_file = find_file(url, component, filenames)
+    if found_file:
+        return f"{Fore.GREEN}\t {found_file.upper()} file found \t > {url}/components/{component}/{found_file}\n"
+    return ""
 
 def check_license(url, component):
-    if check_url(url, "/components/" + component + "/LICENSE.txt") == 200:
-        print "\t LICENSE file found \t > " + url + "/components/" + component + "/LICENSE.txt"
-
-    if check_url(url, "/components/" + component + "/license.txt") == 200:
-        print "\t LICENSE file found \t > " + url + "/components/" + component + "/license.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/LICENSE.txt") == 200:
-        print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/LICENSE.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/license.txt") == 200:
-        print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/license.txt"
-
-    if check_url(url, "/components/" + component + "/" + component[4:] + ".xml") == 200:
-        print "\t LICENSE file found \t > " + url + "/components/" + component + "/" + component[4:] + ".xml"
-
-    if check_url(url, "/administrator/components/" + component + "/" + component[4:] + ".xml") == 200:
-        print "\t LICENSE file found \t > " + url + "/administrator/components/" + component + "/" + component[
-                                                                                                     4:] + ".xml"
-
+    filenames = ["LICENSE.txt", "license.txt", f"{component[4:]}.xml"]
+    found_file = find_file(url, component, filenames)
+    if found_file:
+        return f"{Fore.GREEN}\t {found_file.upper()} file found \t > {url}/components/{component}/{found_file}\n"
+    return ""
 
 def check_changelog(url, component):
-    if check_url(url, "/components/" + component + "/CHANGELOG.txt") == 200:
-        print "\t CHANGELOG file found \t > " + url + "/components/" + component + "/CHANGELOG.txt"
+    filenames = ["CHANGELOG.txt", "changelog.txt"]
+    found_file = find_file(url, component, filenames)
+    if found_file:
+        return f"{Fore.GREEN}\t {found_file.upper()} file found \t > {url}/components/{component}/{found_file}\n"
+    return ""
 
-    if check_url(url, "/components/" + component + "/changelog.txt") == 200:
-        print "\t CHANGELOG file found \t > " + url + "/components/" + component + "/changelog.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/CHANGELOG.txt") == 200:
-        print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/CHANGELOG.txt"
-
-    if check_url(url, "/administrator/components/" + component + "/changelog.txt") == 200:
-        print "\t CHANGELOG file found \t > " + url + "/administrator/components/" + component + "/changelog.txt"
-
-
-def check_mainfest(url, component):
-    if check_url(url, "/components/" + component + "/MANIFEST.xml") == 200:
-        print "\t MANIFEST file found \t > " + url + "/components/" + component + "/MANIFEST.xml"
-
-    if check_url(url, "/components/" + component + "/manifest.xml") == 200:
-        print "\t MANIFEST file found \t > " + url + "/components/" + component + "/manifest.xml"
-
-    if check_url(url, "/administrator/components/" + component + "/MANIFEST.xml") == 200:
-        print "\t MANIFEST file found \t > " + url + "/administrator/components/" + component + "/MANIFEST.xml"
-
-    if check_url(url, "/administrator/components/" + component + "/manifest.xml") == 200:
-        print "\t MANIFEST file found \t > " + url + "/administrator/components/" + component + "/manifest.xml"
-
+def check_manifest(url, component):
+    filenames = ["MANIFEST.xml", "manifest.xml"]
+    found_file = find_file(url, component, filenames)
+    if found_file:
+        return f"{Fore.GREEN}\t {found_file.upper()} file found \t > {url}/components/{component}/{found_file}\n"
+    return ""
 
 def check_index(url, component):
-    if check_url_head_content_length(url, "/components/" + component + "/index.htm") == 200 and check_url_head(url,
-                                                                                                               "/components/" + component + "/index.htm") > 1000:
-        print "\t INDEX file descriptive found \t > " + url + "/components/" + component + "/index.htm"
-
-    if check_url_head_content_length(url, "/components/" + component + "/index.html") == 200 and check_url_head(url,
-                                                                                                                "/components/" + component + "/index.html") > 1000:
-        print "\t INDEX file descriptive found \t > " + url + "/components/" + component + "/index.html"
-
-    if check_url_head_content_length(url,
-                                     "/administrator/components/" + component + "/INDEX.htm") == 200 and check_url_head(
-        url, "/administrator/components/" + component + "/INDEX.htm") > 1000:
-        print "\t INDEX file descriptive found \t > " + url + "/administrator/components/" + component + "/INDEX.htm"
-
-    if check_url_head_content_length(url,
-                                     "/administrator/components/" + component + "/INDEX.html") == 200 and check_url_head(
-        url, "/administrator/components/" + component + "/INDEX.html") > 1000:
-        print "\t INDEX file descriptive found \t > " + url + "/administrator/components/" + component + "/INDEX.html"
-
+    filenames = ["index.htm", "index.html"]
+    for filename in filenames:
+        full_url = url + f"/components/{component}/{filename}"
+        try:
+            response = session.head(full_url, timeout=timeoutconnection)
+            if response.status_code == 200 and int(response.headers.get("content-length", 0)) > 1000:
+                return f"{Fore.GREEN}\t {filename.upper()} file descriptive found \t > {full_url}\n"
+        except requests.RequestException:
+            pass
+    return ""
 
 def index_of(url, path="/"):
-    fullurl = url + path
+    full_url = url + path
     try:
-        page = requests.get(fullurl, headers=useragentdesktop, timeout=timeoutconnection)
-        soup = BeautifulSoup(page.text, "html.parser")
-        if soup.title:
-            titlepage = soup.title.string
-            if (titlepage and "Index of /" in titlepage):
-                return True
-            else:
-                return False
-        else:
-            return False
-    except:
-        return False
-
+        response = session.get(full_url, timeout=timeoutconnection)
+        soup = BeautifulSoup(response.text, "html.parser")
+        if soup.title and "Index of /" in soup.title.string:
+            return True
+    except requests.RequestException:
+        pass
+    return False
 
 def scanner(url, component):
-    if check_url(url, "/index.php?option=" + component) == 200:
-        print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
+    result = ""
 
-        check_readme(url, component)
+    if check_url(url, "/index.php?option=" + component) is not None:
+        result += f"{Fore.GREEN}Component found: {component}\t > {url}/index.php?option={component}\n"
+    else:
+        result += f"{Fore.YELLOW}No component found: {component} at {url}/index.php?option={component}\n"
 
-        check_license(url, component)
+    result += check_readme(url, component)
+    result += check_license(url, component)
+    result += check_changelog(url, component)
+    result += check_manifest(url, component)
+    result += check_index(url, component)
 
-        check_changelog(url, component)
+    if index_of(url, "/components/" + component + "/"):
+        result += f"{Fore.CYAN}\t Explorable Directory \t > {url}/components/{component}/\n"
 
-        check_mainfest(url, component)
+    if index_of(url, "/administrator/components/" + component + "/"):
+        result += f"{Fore.CYAN}\t Explorable Directory \t > {url}/administrator/components/{component}/\n"
 
-        check_index(url, component)
-
-        if index_of(url, "/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
-
-        if index_of(url, "/administrator/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
-
-    elif check_url(url, "/components/" + component + "/") == 200:
-        print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
-        print "\t But possibly it is not active or protected"
-
-        check_readme(url, component)
-
-        check_license(url, component)
-
-        check_changelog(url, component)
-
-        check_mainfest(url, component)
-
-        check_index(url, component)
-
-        if index_of(url, "/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
-
-        if index_of(url, "/administrator/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
-
-    elif check_url(url, "/administrator/components/" + component + "/") == 200:
-        print "Component found: " + component + "\t > " + url + "/index.php?option=" + component
-        print "\t On the administrator components"
-
-        check_readme(url, component)
-
-        check_license(url, component)
-
-        check_changelog(url, component)
-
-        check_mainfest(url, component)
-
-        check_index(url, component)
-
-        if index_of(url, "/administrator/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/components/" + component + "/"
-
-        if index_of(url, "/administrator/components/" + component + "/"):
-            print "\t Explorable Directory \t > " + url + "/administrator/components/" + component + "/"
+    if result:
+        print(result)
 
     pool.release()
 
-
 def main(argv):
-    # Carico il database di tutti i compomenti di Joomla
+    useragentdesktop = {
+        "User-Agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0)",
+        "Accept-Language": "it"
+    }
+
     load_component()
 
-    # Visualizzo il banner di benvenuto
     hello()
 
-    # Analizzo gli argomenti passati sul terminale
     try:
         parser = argparse.ArgumentParser()
         parser.add_argument("-u", "--url", action="store", dest="url", help="The Joomla URL/domain to scan.")
         parser.add_argument("-t", "--threads", action="store", dest="threads",
                             help="The number of threads to use when multi-threading requests (default: 10).")
-        parser.add_argument("-v", "--version", action="version", version="%(prog)s " + swversion)
+        parser.add_argument("-v", "--version", action="version", version="%(prog)s " + aliversion)
 
         arguments = parser.parse_args()
     except:
@@ -249,60 +148,52 @@ def main(argv):
     if arguments.url:
         url = arguments.url
         if url[:8] != "https://" and url[:7] != "http://":
-            print("You must insert http:// or https:// procotol\n")
+            print("You must insert http:// or https:// protocol\n")
             sys.exit(1)
 
-        # Rimuovo un eventuale barra alla fine del url
-        if url[-1:] is "/":
+        if url[-1:] == "/":
             url = url[:-1]
     else:
         print("")
         parser.parse_args(["-h"])
         sys.exit(1)
 
-    concurrentthreads = 10
+    concurrent_threads = 10
     global pool
-    # Imposto il numero di thread concorrenti
-    if arguments.threads and arguments.threads is int:
-        # Limit the number of threads.
-        concurrentthreads = arguments.threads
-        pool = threading.BoundedSemaphore(concurrentthreads)
+
+    if arguments.threads and arguments.threads.isdigit():
+        concurrent_threads = int(arguments.threads)
+        pool = threading.BoundedSemaphore(concurrent_threads)
     else:
-        # Default value for limit the number of threads.
-        pool = threading.BoundedSemaphore(concurrentthreads)
+        pool = threading.BoundedSemaphore(concurrent_threads)
 
-    # Analizzo la disponibilita del sito indicato
-    if check_url(url) != 404:
-
-        if check_url(url, "/robots.txt") == 200:
-            print "Robots file found: \t \t > " + url + "/robots.txt"
+    if check_url(url, useragentdesktop) is not None:
+        if check_url(url, useragentdesktop, "/robots.txt") is not None:
+            print(Fore.GREEN + f"Robots file found: \t \t > {url}/robots.txt")
         else:
-            print "No Robots file found"
+            print(Fore.YELLOW + "No Robots file found")
 
-        if check_url(url, "/error_log") == 200:
-            print "Error log found: \t \t > " + url + "/error_log"
+        if check_url(url, useragentdesktop, "/error_log") is not None:
+            print(Fore.GREEN + f"Error log found: \t \t > {url}/error_log")
         else:
-            print "No Error Log found"
+            print(Fore.YELLOW + "No Error Log found")
 
-        # Inizio la scansione dei componenti
+        print(Fore.CYAN + "\nStart scan...with %d concurrent threads!" % concurrent_threads)
 
-        print "\nStart scan...with %d concurrent threads!" % concurrentthreads
+        results = []
 
-        for component in dbarray:
-            # Thread Pool
+        for component in tqdm(dbarray, desc="Scanning Components"):
             pool.acquire(blocking=True)
-
             t = threading.Thread(target=scanner, args=(url, component,))
             t.start()
+            results.append(t)
 
-        while (threading.active_count() > 1):
-            time.sleep(0.1)
+        for t in tqdm(results, desc="Waiting for Threads"):
+            t.join()
 
-        print "End Scanner"
-
+        print(Fore.CYAN + "End Scanner")
     else:
-        print "Site Down, check url please..."
-
+        print(Fore.RED + "Site Down, check URL please...")
 
 if __name__ == "__main__":
     main(sys.argv[1:])
